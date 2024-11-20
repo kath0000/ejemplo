@@ -14,23 +14,25 @@
     <table class="table table-striped table-responsive">
       <thead>
         <tr>
-          <th>Id</th>
-          <th>Nombre</th>
-          <th>Edad</th>
+          <th>N_Factura</th>
+          <th>Pago</th>
+          <th>Importe</th>
+          <th>Envio</th>
         </tr>
       </thead>
       <tbody>
         <?php
 
-        $conexion = mysqli_connect(getenv('MYSQL_HOST'), getenv('MYSQL_USER'), getenv('MYSQL_PASSWORD'), "PRUEBA");
+        $conexion = mysqli_connect(getenv('MYSQL_HOST'), getenv('MYSQL_USER'), getenv('MYSQL_PASSWORD'), "practica_huamanii");
 
-        $cadenaSQL = "select * from s_cliente";
+        $cadenaSQL = "select * from factura";
         $resultado = mysqli_query($conexion, $cadenaSQL);
 
         while ($fila = mysqli_fetch_object($resultado)) {
-         echo "<tr><td> " .$fila->id. 
-         "</td><td>" . $fila->nombre .
-         "</td><td>" . $fila->edad .
+         echo "<tr><td> " .$fila->n_factura. 
+         "</td><td>" . $fila->pago .
+         "</td><td>" . $fila->importe .
+         "</td><td>" . $fila->envio .
          "</td></tr>";
        }
        ?>
